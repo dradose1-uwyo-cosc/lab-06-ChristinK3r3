@@ -1,9 +1,9 @@
-# Your Name Here
+# Christin Kere
 # UWYO COSC 1010
-# Submission Date
+# 10/15/24
 # Lab 06
-# Lab Section: 
-# Sources, people worked with, help given to: 
+# Lab Section: 14
+# Sources, people worked with, help given to: Danny's ppt
 # your
 # comments
 # here
@@ -70,10 +70,28 @@ print(len(random_string)) # Print out the size for reference
 # Output which letter occurred the most 
 # Output which letter occurred the least 
 # Output what the percentage of the string each character is, again in alphabetical
-
+letter_count= {}
+for letter in random_string:
+    if letter in letter_count:
+        letter_count[letter] += 1
+    else: 
+        letter_count[letter] = 1
+sorted_let_count = dict(sorted(letter_count.items()))  
+most_occured_let = max(letter_count, key=letter_count.get)
+least_occured_let = min(letter_count, key=letter_count.get)
+total_letters = len(random_string)   
+print("*"*75)
+for letter, count in sorted_let_count.items():
+    percentage = (count/total_letters)  * 100
+    print(f"Letter: {letter}, Occurance: {count}, Percentage: {percentage}%")
+print("*"*75)
+print(f"The letter that occurred the most is: '{most_occured_let}', Occurred {letter_count[most_occured_let]} times.")
+print("*"*75)
+print(f"The letter that occurred the least is: '{least_occured_let}', Occurred {letter_count[least_occured_let]} times.")
+print("*"*75)
 #Tips and trick:
 # You can iterate through strings like you would a list
-# All characters are lowercase 
+# All characters are lowercase
 # Each letter will be PAIRED with its corresponding value 
 # That is to say, this is a great use of dictionaries
     # You will  need to add the letter to the dictionary on first occurrence 
@@ -85,16 +103,9 @@ print(len(random_string)) # Print out the size for reference
 
 # Output: each letter and its corresponding occurrence in alphabetical order
 
-print("*"*75)
+
 # Output which letter occurred the most 
 
-most_occurred = ""
-least_occurred = ""
-
-print(f"The letter that occurred the most is {most_occurred}")
-print("*"*75)
 # Output which letter occurred the least 
-print(f"The letter that occurred the most is {least_occurred}")
-print("*"*75)
 
 # Output what the percentage of the string each character is, again in alphabetical
